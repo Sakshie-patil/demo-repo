@@ -2,47 +2,7 @@
 let nav = document.getElementById('navbar');
 
 
-
 nav.innerHTML = `
-
-<style>
- 
-/* Navbar link styling */
-.navbar-nav .nav-link {
-    color: black; /* Default text color */
-    position: relative;
-    text-decoration: none; /* Remove default underline */
-    padding: 10px 15px;
-    transition: color 0.3s ease-in-out;
-}
-
-/* Sliding line effect */
-.navbar-nav .nav-link::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -3px; /* Position the line just below the text */
-    width: 0%;
-    height: 3px;
-    background-color: #DC143C; /* Gold color */
-    transition: width 0.3s ease-in-out;
-    opacity: 0;
-}
-
-/* Hover effect */
-.navbar-nav .nav-link:hover {
-    color: #DC143C; /* Change text color on hover */
-}
-
-/* Expand the line on hover */
-.navbar-nav .nav-link:hover::after {
-    width: 100%;
-    opacity: 1;
-}
-
-
-</style>
-
 <div class="container-fluid ">
       <div class="row d-none d-lg-block d-md-block">
         <nav class="navbar bgcol_pri navbar-expand-sm nav-hide ">
@@ -110,14 +70,10 @@ nav.innerHTML = `
               aria-label="Close"
             ></button>
           </div>
-
-
-         
-
           <div class="offcanvas-body">
-            <ul class="navbar-nav justify-content-end flex-grow-1">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 offcanvas-nav">
               <li class="nav-item text-center">
-                <a class="nav-link " aria-current="page" href="/index.html">HOME</a>
+                <a class="nav-link active" aria-current="page" href="/index.html">HOME</a>
               </li>
               <li class="nav-item text-center">
                 <a class="nav-link" href="/aboutus/aboutus.html">ABOUT US</a>
