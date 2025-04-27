@@ -9,22 +9,42 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(MaterialApp(home: FirebaseExample()));
+  runApp(MaterialApp(home: FirestoreForm()));
 }
 
-class FirebaseExample extends StatelessWidget {
-  final CollectionReference users = FirebaseFirestore.instance.collection('users');
+class FirestoreForm extends StatefulWidget {
+  @override
+  _FirestoreFormState createState() => _FirestoreFormState();
+}
+
+class _FirestoreFormState extends State<FirestoreForm> {
+  final TextEditingController _controller = TextEditingController();
+
+  void addUser() {
+    FirebaseFirestore.instance.collection('users').add({
+      'name': _controller.text,
+      'timestamp': Timestamp.now(),
+    });
+    _controller.clear();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Firebase Example')),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            users.add({'name': 'Rhugved', 'email': 'rhugved@example.com'});
-          },
-          child: Text('Add User to Firestore'),
+      appBar: AppBar(title: Text('Firestore Demo')),
+      body: Padding(
+        padding: EdgeInsets.all(16),
+        child: Column(
+          children: [
+            TextField(
+              controller: _controller,
+              decoration: InputDecoration(labelText: 'Enter Name'),
+            ),
+            ElevatedButton(
+              onPressed: addUser,
+              child: Text('Add to Firestore'),
+            ),
+          ],
         ),
       ),
     );
