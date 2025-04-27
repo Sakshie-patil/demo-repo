@@ -1,0 +1,32 @@
+// pubspec.yaml dependencies:
+// firebase_core: ^2.0.0
+// cloud_firestore: ^4.0.0
+
+import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(MaterialApp(home: FirebaseExample()));
+}
+
+class FirebaseExample extends StatelessWidget {
+  final CollectionReference users = FirebaseFirestore.instance.collection('users');
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('Firebase Example')),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            users.add({'name': 'Rhugved', 'email': 'rhugved@example.com'});
+          },
+          child: Text('Add User to Firestore'),
+        ),
+      ),
+    );
+  }
+}
