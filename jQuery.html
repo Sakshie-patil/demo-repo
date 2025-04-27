@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Ecommerce Store</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- jQuery Mobile CSS -->
+  <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+
+  <!-- jQuery and jQuery Mobile JS -->
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+  <style>
+    .product-img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+    .product-card {
+      margin-bottom: 20px;
+      padding: 10px;
+      background-color: #f9f9f9;
+      border-radius: 10px;
+    }
+    .price {
+      color: green;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Home Page -->
+<div data-role="page" id="home">
+
+  <!-- Header -->
+  <div data-role="header" data-theme="b">
+    <h1>MyShop</h1>
+    <a href="#cart" class="ui-btn ui-btn-right ui-icon-shop ui-btn-icon-notext">Cart</a>
+  </div>
+
+  <!-- Content -->
+  <div role="main" class="ui-content">
+
+    <h2>Featured Products</h2>
+
+    <!-- Product List -->
+    <div class="product-card">
+      <img src="https://via.placeholder.com/300x200" alt="Product 1" class="product-img">
+      <h3>Wireless Headphones</h3>
+      <p class="price">$59.99</p>
+      <a href="#cart" class="ui-btn ui-btn-inline ui-icon-cart ui-btn-icon-left">Add to Cart</a>
+    </div>
+
+    <div class="product-card">
+      <img src="https://via.placeholder.com/300x200" alt="Product 2" class="product-img">
+      <h3>Smart Watch</h3>
+      <p class="price">$79.99</p>
+      <a href="#cart" class="ui-btn ui-btn-inline ui-icon-cart ui-btn-icon-left">Add to Cart</a>
+    </div>
+
+    <div class="product-card">
+      <img src="https://via.placeholder.com/300x200" alt="Product 3" class="product-img">
+      <h3>Bluetooth Speaker</h3>
+      <p class="price">$39.99</p>
+      <a href="#cart" class="ui-btn ui-btn-inline ui-icon-cart ui-btn-icon-left">Add to Cart</a>
+    </div>
+
+    <div class="product-card">
+      <img src="https://via.placeholder.com/300x200" alt="Product 4" class="product-img">
+      <h3>DSLR Camera</h3>
+      <p class="price">$499.99</p>
+      <a href="#cart" class="ui-btn ui-btn-inline ui-icon-cart ui-btn-icon-left">Add to Cart</a>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <div data-role="footer" data-theme="b">
+    <h4>&copy; 2025 MyShop. All rights reserved.</h4>
+  </div>
+
+</div>
+
+<!-- Cart Page -->
+<div data-role="page" id="cart">
+
+  <!-- Header -->
+  <div data-role="header" data-theme="b">
+    <h1>Your Cart</h1>
+    <a href="#home" class="ui-btn ui-btn-left ui-icon-home ui-btn-icon-notext">Home</a>
+  </div>
+
+  <!-- Content -->
+  <div role="main" class="ui-content">
+    <h2>Items in your cart:</h2>
+    <ul data-role="listview" data-inset="true">
+      <li>
+        <img src="https://via.placeholder.com/100x80" alt="Product 1">
+        <h2>Wireless Headphones</h2>
+        <p class="price">$59.99</p>
+      </li>
+      <li>
+        <img src="https://via.placeholder.com/100x80" alt="Product 2">
+        <h2>Smart Watch</h2>
+        <p class="price">$79.99</p>
+      </li>
+    </ul>
+    <a href="#checkout" class="ui-btn ui-btn-b ui-btn-inline">Proceed to Checkout</a>
+  </div>
+
+  <!-- Footer -->
+  <div data-role="footer" data-theme="b">
+    <h4>&copy; 2025 MyShop. All rights reserved.</h4>
+  </div>
+
+</div>
+
+<!-- Checkout Page -->
+<div data-role="page" id="checkout">
+
+  <!-- Header -->
+  <div data-role="header" data-theme="b">
+    <h1>Checkout</h1>
+    <a href="#home" class="ui-btn ui-btn-left ui-icon-home ui-btn-icon-notext">Home</a>
+  </div>
+
+  <!-- Content -->
+  <div role="main" class="ui-content">
+    <h2>Payment Details</h2>
+    <form>
+      <label for="name">Name:</label>
+      <input type="text" name="name" id="name" placeholder="Your Name">
+
+      <label for="address">Address:</label>
+      <input type="text" name="address" id="address" placeholder="Delivery Address">
+
+      <label for="card">Card Number:</label>
+      <input type="number" name="card" id="card" placeholder="1234-5678-9012-3456">
+
+      <input type="submit" value="Pay Now" class="ui-btn ui-btn-b">
+    </form>
+  </div>
+
+  <!-- Footer -->
+  <div data-role="footer" data-theme="b">
+    <h4>&copy; 2025 MyShop. All rights reserved.</h4>
+  </div>
+
+</div>
+
+</body>
+</html>
