@@ -1,0 +1,410 @@
+import os
+import pickle
+import streamlit as st
+from streamlit_option_menu import option_menu
+import joblib
+
+working_dir = os.getcwd()
+
+# Set page configuration
+st.set_page_config(page_title="Health Assistant",
+                   layout="wide",
+                   page_icon="🧑‍⚕️")
+
+scaler = joblib.load(os.path.join(working_dir, 'models/scaler.pkl'))
+scaler2 = joblib.load(os.path.join(working_dir, 'models/scaler2.pkl'))
+
+# getting the working directory of the main.py
+working_dir = os.path.dirname(os.path.abspath(__file__))
+
+# loading the saved models
+# used support vector machine
+diabetes_model = joblib.load(os.path.join(working_dir, 'models/classifier.pkl'))
+
+# used logistic regression
+heart_disease_model = joblib.load(os.path.join(working_dir, 'models/logistic_regression.pkl'))
+
+# best model for Parkinson's (Random Forest)
+parkinsons_model = joblib.load('models/parkinsons_model_rf.pkl')    
+
+# sidebar for navigation
+with st.sidebar:
+    selected = option_menu('Multiple Disease Prediction System',
+                           ['Diabetes Prediction',
+                            'Heart Disease Prediction',
+                            'Parkinsons Prediction'],
+                           menu_icon='hospital-fill',
+                           icons=['activity', 'heart', 'person'],
+                           default_index=0)
+
+# Diabetes Prediction Page
+if selected == 'Diabetes Prediction':
+    # page title
+    st.title('Diabetes Prediction using ML')
+    
+    # getting the input data from the user
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+        Pregnancies = st.number_input(
+            "Pregnancies (count)", 
+            min_value=0, 
+            max_value=17, 
+            step=1, 
+            format="%d", 
+            help="Number of times pregnant. Range: 0-17 pregnancies."
+        )
+    
+    with col2:
+        Glucose = st.number_input(
+            "Glucose Level (mg/dL)", 
+            min_value=50,  # FIXED: Changed from 0 to 50 (minimum viable glucose level)
+            max_value=300, 
+            step=1, 
+            format="%d", 
+            # value=100,  # Added default value
+            help="Plasma glucose concentration. Normal: 70-140 mg/dL, Diabetes: ≥126 mg/dL"
+        )
+    
+    with col3:
+        BloodPressure = st.number_input(
+            "Blood Pressure (mmHg)", 
+            min_value=40,  # FIXED: Changed from 0 to 40 (minimum viable BP)
+            max_value=200,  # FIXED: Changed from 122 to 200 (to cover hypertension)
+            step=1, 
+            format="%d", 
+            # value=80,  # Added default value
+            help="Diastolic blood pressure. Normal: 60-80 mmHg, High: >90 mmHg"
+        )
+    
+    with col1:
+        SkinThickness = st.number_input(
+            "Skin Thickness (mm)", 
+            min_value=7,  # FIXED: Changed from 0 to 7 (minimum realistic thickness)
+            max_value=99, 
+            step=1, 
+            format="%d", 
+            # value=20,  # Added default value
+            help="Triceps skin fold thickness. Normal range: 12-28 mm"
+        )
+    
+    with col2:
+        Insulin = st.number_input(
+            "Insulin (μU/mL)", 
+            min_value=14,  # FIXED: Changed from 0 to 14 (minimum realistic insulin)
+            max_value=846, 
+            step=1, 
+            format="%d", 
+            # value=80,  # Added default value
+            help="2-Hour serum insulin. Normal range: 16-166 μU/mL"
+        )
+    
+    with col3:
+        BMI = st.number_input(
+            "BMI (kg/m²)", 
+            min_value=15.0,  # FIXED: Changed from 0.0 to 15.0 (minimum viable BMI)
+            max_value=68.0, 
+            step=0.1, 
+            format="%.1f", 
+            # value=25.0,  # Added default value
+            help="Body Mass Index. Normal: 18.5-24.9, Overweight: 25-29.9, Obese: ≥30"
+        )
+    
+    with col1:
+        DiabetesPedigreeFunction = st.number_input(
+            "Diabetes Pedigree Function", 
+            min_value=0.078, 
+            max_value=2.42, 
+            step=0.001, 
+            format="%.3f", 
+            # value=0.5,  # Added default value
+            help="Diabetes pedigree function (family history score). Higher values indicate stronger family history."
+        )
+    
+    with col2:
+        Age = st.number_input(
+            "Age (years)", 
+            min_value=11, 
+            max_value=81, 
+            step=1, 
+            format="%d", 
+            # value=30,  # Added default value
+            help="Age in years. Dataset range: 21-81 years"
+        )
+
+    # code for Prediction
+    diab_diagnosis = ''
+    
+    # creating a button for Prediction
+    if st.button('Diabetes Test Result'):
+        user_input = [Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin,
+                      BMI, DiabetesPedigreeFunction, Age]
+        
+        user_input = [float(x) for x in user_input]
+        
+        # Apply scaling
+        user_input_scaled = scaler.transform([user_input])
+        diab_prediction = diabetes_model.predict(user_input_scaled)
+        
+        if diab_prediction[0] == 1:
+            diab_diagnosis = 'The person is diabetic'
+        else:
+            diab_diagnosis = 'The person is not diabetic'
+        
+        st.success(diab_diagnosis)
+
+# Heart Disease Prediction Page
+if selected == 'Heart Disease Prediction':
+    # page title
+    st.title('Heart Disease Prediction using ML')
+    
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+        age = st.number_input(
+            "Age (years)", 
+            min_value=20,  # FIXED: Changed from 0 to 20 (adult heart disease)
+            max_value=100, 
+            step=1, 
+            format="%d", 
+            value=50,  # Added default value
+            help="Age in years. Heart disease typically assessed in adults 20+ years"
+        )
+    
+    with col2:
+        sex = st.selectbox(
+            "Sex",
+            options=[0, 1],
+            format_func=lambda x: "Female" if x == 0 else "Male",
+            help="Biological sex: Female = 0, Male = 1"
+        )
+    
+    with col3:
+        cp = st.selectbox(
+            "Chest Pain Type",
+            options=[0, 1, 2, 3],
+            format_func=lambda x: {
+                0: "Typical Angina", 
+                1: "Atypical Angina", 
+                2: "Non-anginal Pain", 
+                3: "Asymptomatic"
+            }.get(x),
+            help="Type of chest pain experienced"
+        )
+    
+    with col1:
+        trestbps = st.number_input(
+            "Resting Blood Pressure (mmHg)", 
+            min_value=80,  # Good range
+            max_value=200, 
+            step=1, 
+            format="%d", 
+            value=120,  # Added default value
+            help="Resting systolic blood pressure. Normal: 90-120 mmHg"
+        )
+    
+    with col2:
+        chol = st.number_input(
+            "Serum Cholesterol (mg/dl)", 
+            min_value=100,  # Good range
+            max_value=600, 
+            step=1, 
+            format="%d", 
+            value=200,  # Added default value
+            help="Total cholesterol level. Normal: <200 mg/dl, High: ≥240 mg/dl"
+        )
+    
+    with col3:
+        fbs = st.selectbox(
+            "Fasting Blood Sugar > 120 mg/dl",
+            options=[0, 1],
+            format_func=lambda x: "No (≤120)" if x == 0 else "Yes (>120)",
+            help="Whether fasting blood sugar exceeds 120 mg/dl"
+        )
+    
+    with col1:
+        restecg = st.selectbox(
+            "Resting ECG Results",
+            options=[0, 1, 2],
+            format_func=lambda x: {
+                0: "Normal", 
+                1: "ST-T Wave Abnormality", 
+                2: "Left Ventricular Hypertrophy"
+            }.get(x),
+            help="Resting electrocardiographic results"
+        )
+    
+    with col2:
+        thalach = st.number_input(
+            "Maximum Heart Rate (bpm)", 
+            min_value=60,  # Good range
+            max_value=220, 
+            step=1, 
+            format="%d", 
+            value=150,  # Added default value
+            help="Maximum heart rate achieved during exercise. Normal varies by age"
+        )
+    
+    with col3:
+        exang = st.selectbox(
+            "Exercise Induced Angina",
+            options=[0, 1],
+            format_func=lambda x: "No" if x == 0 else "Yes",
+            help="Whether exercise induces chest pain"
+        )
+    
+    with col1:
+        oldpeak = st.number_input(
+            "ST Depression (mm)", 
+            min_value=0.0, 
+            max_value=10.0, 
+            step=0.1, 
+            format="%.1f", 
+            value=1.0,  # Added default value
+            help="ST depression induced by exercise relative to rest"
+        )
+    
+    with col2:
+        slope = st.selectbox(
+            "ST Segment Slope",
+            options=[0, 1, 2],
+            format_func=lambda x: {
+                0: "Upsloping", 
+                1: "Flat", 
+                2: "Downsloping"
+            }.get(x),
+            help="Slope of the peak exercise ST segment"
+        )
+    
+    with col3:
+        ca = st.selectbox(
+            "Major Vessels (0-4)",
+            options=[0, 1, 2, 3, 4],
+            help="Number of major vessels colored by fluoroscopy"
+        )
+    
+    with col1:
+        thal = st.selectbox(
+            "Thalassemia Type",
+            options=[0, 1, 2, 3],
+            format_func=lambda x: {
+                0: "Normal", 
+                1: "Fixed Defect", 
+                2: "Reversible Defect",
+                3: "Unknown"
+            }.get(x),
+            help="Thalassemia blood disorder type"
+        )
+
+    # code for Prediction
+    heart_diagnosis = ''
+    
+    # creating a button for Prediction
+    if st.button('Heart Disease Test Result'):
+        user_input = [age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal]
+        
+        user_input = [float(x) for x in user_input]
+        
+        # Uses the models to make predictions based on the inputs.
+        heart_prediction = heart_disease_model.predict([user_input])
+        
+        if heart_prediction[0] == 1:
+            heart_diagnosis = 'The person is having heart disease'
+        else:
+            heart_diagnosis = 'The person does not have heart disease'
+        
+        st.success(heart_diagnosis)
+
+# Parkinson's Prediction Page
+if selected == "Parkinsons Prediction":
+    # page title
+    st.title("Parkinson's Disease Prediction using ML")
+    
+    col1, col2, col3, col4, col5 = st.columns(5)
+    
+    with col1:
+        fo = st.text_input('MDVP:Fo(Hz)')
+    
+    with col2:
+        fhi = st.text_input('MDVP:Fhi(Hz)')
+    
+    with col3:
+        flo = st.text_input('MDVP:Flo(Hz)')
+    
+    with col4:
+        Jitter_percent = st.text_input('MDVP:Jitter(%)')
+    
+    with col5:
+        Jitter_Abs = st.text_input('MDVP:Jitter(Abs)')
+    
+    with col1:
+        RAP = st.text_input('MDVP:RAP')
+    
+    with col2:
+        PPQ = st.text_input('MDVP:PPQ')
+    
+    with col3:
+        DDP = st.text_input('Jitter:DDP')
+    
+    with col4:
+        Shimmer = st.text_input('MDVP:Shimmer')
+    
+    with col5:
+        Shimmer_dB = st.text_input('MDVP:Shimmer(dB)')
+    
+    with col1:
+        APQ3 = st.text_input('Shimmer:APQ3')
+    
+    with col2:
+        APQ5 = st.text_input('Shimmer:APQ5')
+    
+    with col3:
+        APQ = st.text_input('MDVP:APQ')
+    
+    with col4:
+        DDA = st.text_input('Shimmer:DDA')
+    
+    with col5:
+        NHR = st.text_input('NHR')
+    
+    with col1:
+        HNR = st.text_input('HNR')
+    
+    with col2:
+        RPDE = st.text_input('RPDE')
+    
+    with col3:
+        DFA = st.text_input('DFA')
+    
+    with col4:
+        spread1 = st.text_input('spread1')
+    
+    with col5:
+        spread2 = st.text_input('spread2')
+    
+    with col1:
+        D2 = st.text_input('D2')
+    
+    with col2:
+        PPE = st.text_input('PPE')
+
+    # code for Prediction
+    parkinsons_diagnosis = ''
+    
+    # creating a button for Prediction    
+    if st.button("Parkinson's Test Result"):
+        user_input = [fo, fhi, flo, Jitter_percent, Jitter_Abs,
+                      RAP, PPQ, DDP,Shimmer, Shimmer_dB, APQ3, APQ5,
+                      APQ, DDA, NHR, HNR, RPDE, DFA, spread1, spread2, D2, PPE]
+        
+        user_input = [float(x) for x in user_input]
+        
+        # Uses the models to make predictions based on the inputs.
+        parkinsons_prediction = parkinsons_model.predict([user_input])
+        
+        if parkinsons_prediction[0] == 1:
+            parkinsons_diagnosis = "The person has Parkinson's disease"
+        else:
+            parkinsons_diagnosis = "The person does not have Parkinson's disease"
+        
+        st.success(parkinsons_diagnosis)
