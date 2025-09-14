@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="/style/main.css" />
+    <link rel="stylesheet" href="/style/footer.css" />
+    <link rel="stylesheet" href="/style/nav.css" />
+    <link rel="stylesheet" href="/chat.css" />
+    <link rel="stylesheet" href="/home.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="icon" href="/assets/logo.ico" type="image/x-icon" />
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <title>DBIT EXTC</title>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-4JDMRE8FDJ"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-4JDMRE8FDJ");
+    </script>
+
+    <style>
+      body {
+        background-color: white;
+      }
+    </style>
+  </head>
+
+  <body class="">
+    <div id="navbar"></div>
+
+    <main class="container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-md-8 p-0 justify-content-center">
+          <div class="row border rounded my-3 mx-4 py-3 bg-light">
+            <div
+              id="carouselExampleIndicators"
+              class="carousel slide justify-content-center"
+              data-bs-ride="true"
+            >
+              <div class="carousel-indicators">
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide-to="0"
+                  class="active"
+                  aria-current="true"
+                  aria-label="Slide 1"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide-to="1"
+                  class="active"
+                  aria-current="true"
+                  aria-label="Slide 2"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide-to="2"
+                  aria-label="Slide 3"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide-to="3"
+                  aria-label="Slide 4"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide-to="4"
+                  aria-label="Slide 5"
+                ></button>
+
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide-to="5"
+                  aria-label="Slide 6"
+                ></button>
+
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide-to="6"
+                  aria-label="Slide 7"
+                ></button>
+
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide-to="7"
+                  aria-label="Slide 8"
+                ></button>
+
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide-to="8"
+                  aria-label="Slide 9"
+                ></button>
+
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide-to="9"
+                  aria-label="Slide 10"
+                ></button>
+
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide-to="10"
+                  aria-label="Slide 11"
+                ></button>
+
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide-to="11"
+                  aria-label="Slide 12"
+                ></button>
+              </div>
+
+              <!-- main dbit extc dept photo -->
+              <div class="carousel-item">
+                <img
+                  src="assets\slider\Poster Main EXTC PNG.png"
+                  class="d-block w-100"
+                  style="object-fit: contain; height: 400px"
+                  alt="..."
+                />
+              </div>
+
+              <!-- sliding images -->
+              <div
+                id="carouselExample"
+                class="carousel slide"
+                data-bs-ride="carousel"
+                data-bs-interval="3000"
+              >
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img
+                      src="/assets/collegepic.webp"
+                      class="d-block w-100"
+                      style="
+                        object-fit: cover;
+                        height: 400px;
+                        animation: slide 1s infinite;
+                      "
+                      alt="..."
+                    />
+                  </div>
+
+                  <div class="carousel-item">
+                    <img
+                      src="/assets/DBCL-INNOVEX_22-76.webp"
+                      class="d-block w-100"
+                      style="object-fit: cover; height: 400px"
+                      alt="..."
+                    />
+                  </div>
+                  <div class="carousel-item">
+                    <img
+                      src="/assets/DBCL-INNOVEX_22-96.webp"
+                      class="d-block w-100"
+                      style="object-fit: cover; height: 400px"
+                      alt="..."
+                    />
+                  </div>
+                  <div class="carousel-item">
+                    <img
+                      src="/assets/slider/Don_Bosco_Institute_of_Technology_Palcement2024_1.jpeg"
+                      class="d-block w-100"
+                      style="object-fit: cover; height: 400px"
+                      alt="..."
+                    />
+                  </div>
+                  <div class="carousel-item">
+                    <img
+                      src="/assets/slider/Don_Bosco_Institute_of_Technology_Palcement2024_2.jpeg"
+                      class="d-block w-100"
+                      style="object-fit: cover; height: 400px"
+                      alt="..."
+                    />
+                  </div>
+                  <div class="carousel-item">
+                    <img
+                      src="/assets/slider/Don_Bosco_Institute_of_Technology_Palcement2024_3.jpeg"
+                      class="d-block w-100"
+                      style="object-fit: cover; height: 400px"
+                      alt="..."
+                    />
+                  </div>
+
+                  <div class="carousel-item">
+                    <img
+                      src="/assets/slider/Don_Bosco_Institute_of_Technology_Palcement2024_4.jpeg"
+                      class="d-block w-100"
+                      style="object-fit: cover; height: 400px"
+                      alt="..."
+                    />
+                  </div>
+
+                  <div class="carousel-item">
+                    <img
+                      src="/assets/slider/Don_Bosco_Institute_of_Technology_Palcement2024_5.jpeg"
+                      class="d-block w-100"
+                      style="object-fit: cover; height: 400px"
+                      alt="..."
+                    />
+                  </div>
+
+                  <div class="carousel-item">
+                    <img
+                      src="/assets/slider/Don_Bosco_Institute_of_Technology_Palcement2024_6.jpeg"
+                      class="d-block w-100"
+                      style="object-fit: cover; height: 400px"
+                      alt="..."
+                    />
+                  </div>
+
+                  <div class="carousel-item">
+                    <img
+                      src="/assets/slider/Don_Bosco_Institute_of_Technology_Palcement2024_7.jpeg"
+                      class="d-block w-100"
+                      style="object-fit: cover; height: 400px"
+                      alt="..."
+                    />
+                  </div>
+
+                  <div class="carousel-item">
+                    <img
+                      src="/assets/slider/Don_Bosco_Institute_of_Technology_Palcement2024_8.jpeg"
+                      class="d-block w-100"
+                      style="object-fit: cover; height: 400px"
+                      alt="..."
+                    />
+                  </div>
+
+                  <div class="carousel-item">
+                    <img
+                      src="/assets/slider/Don_Bosco_Institute_of_Technology_Palcement2024_9.jpeg"
+                      class="d-block w-100"
+                      style="object-fit: cover; height: 400px"
+                      alt="..."
+                    />
+                  </div>
+
+                  <div class="carousel-item">
+                    <img
+                      src="/assets/slider/Don_Bosco_Institute_of_Technology_Palcement2024_10.jpeg"
+                      class="d-block w-100"
+                      style="object-fit: contain; height: 400px"
+                      alt="..."
+                    />
+                  </div>
+
+                  <div class="carousel-item">
+                    <img
+                      src="/assets/slider/Don_Bosco_Institute_of_Technology_Palcement2024_11.jpeg"
+                      class="d-block w-100"
+                      style="object-fit: contain; height: 400px"
+                      alt="..."
+                    />
+                  </div>
+
+                  <div class="carousel-item">
+                    <img
+                      src="/assets/slider/Don_Bosco_Institute_of_Technology_Palcement2024_12.jpeg"
+                      class="d-block w-100"
+                      style="object-fit: contain; height: 400px"
+                      alt="..."
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <!-- buttons -->
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden"></span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden"></span>
+              </button>
+            </div>
+          </div>
+
+          <!-- hod message -->
+          <div class="row border rounded bg-light my-3 mx-4">
+            <div class="col-md-3">
+              <div class="sppb-addon sppb-addon-module">
+                <div class="sppb-addon-content">
+                  <div class="custom">
+                    <p>
+                      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                      &nbsp;<img
+                        style="
+                          display: block;
+                          margin-left: auto;
+                          margin-right: auto;
+                        "
+                        src="assets/extc-hod-2.jpeg"
+                        alt=""
+                        width="191"
+                        height="191"
+                      />
+                    </p>
+                    <p
+                      style="
+                        border: none;
+                        padding: 0cm;
+                        line-height: 100%;
+                        align: center;
+                      "
+                    >
+                      <span style="font-size: 11pt"
+                        ><strong>Ms. Madhavi Suryakant Pednekar</strong></span
+                      >
+                    </p>
+                    <p
+                      style="
+                        border: none;
+                        padding: 0cm;
+                        line-height: 100%;
+                        align: center;
+                      "
+                    >
+                      <span style="font-size: 11pt"
+                        ><strong>Head of Department</strong></span
+                      >
+                    </p>
+                    <p
+                      style="
+                        border: none;
+                        padding: 0cm;
+                        font-family: helvetica;
+                        line-height: 100%;
+                      "
+                      align="center"
+                    >
+                      <span style="font-size: 11pt">Department of EXTC</span>
+                    </p>
+                    <p
+                      style="
+                        border: none;
+                        font-family: helvetica;
+                        padding: 0cm;
+                        line-height: 100%;
+                      "
+                      align="center"
+                    >
+                      <span style="font-size: 11pt">madhavi@dbit.in</span>
+                    </p>
+                    <!-- <p style="border: none; padding: 0cm; font-family: helvetica; line-height: 100%;" align="center"><span style="font-size: 11pt;">022-25042424 / 25040508 </span></p>
+                <p style="font-family: helvetica; border: none; padding: 0cm; line-height: 100%;" align="center"><span style="font-size: 11pt;">(Ext : 140)</span></p> -->
+                    <p style="margin-bottom: 0cm; line-height: 100%">&nbsp;</p>
+                    <p>&nbsp;</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-9">
+              <div class="sppb-col-md-8">
+                <div id="column-id-1530159476448" class="sppb-column">
+                  <div class="sppb-column-addons">
+                    <div id="sppb-addon-1530159476458" class="clearfix">
+                      <div class="sppb-addon sppb-addon-text-block 0">
+                        <div class="sppb-addon-content">
+                          <div style="text-align: center" class="">
+                            <span
+                              style="
+                                font-size: 14pt;
+                                font-family: arial, helvetica, sans-serif;
+                              "
+                            >
+                              <br /><br /><strong>HOD’s Message<br /></strong
+                            ></span>
+                            <p
+                              style="padding-right: 30px; text-align: justify"
+                              align="justify"
+                            >
+                              <br />
+                              <span
+                                style="
+                                  font-family: arial, helvetica, sans-serif;
+                                  font-size: 13pt;
+                                "
+                              >
+                                Welcome to the Department of Electronics and
+                                Telecommunication Engineering at Don Bosco
+                                Institute of Technology, Mumbai. Since its
+                                inception in 2001, our department has been
+                                committed to providing a holistic and globally
+                                recognized technical education, equipping
+                                students with the knowledge and skills to excel
+                                in this dynamic field </span
+                              ><br /><br />
+                              <span
+                                style="
+                                  font-family: arial, helvetica, sans-serif;
+                                  font-size: 13pt;
+                                "
+                              >
+                                Electronics and Telecommunication Engineering
+                                plays a crucial role in shaping the future of
+                                technology, offering diverse career
+                                opportunities across various industries. At our
+                                department, we foster a culture of innovation
+                                and collaboration, empowering students to work
+                                in multidisciplinary teams, develop leadership
+                                qualities, and uphold ethical engineering
+                                practices. Through expert lectures, hands-on
+                                workshops, and industry-driven training programs
+                                organized under IEEE and IETE student branches,
+                                we ensure that our students stay ahead in
+                                emerging technological advancements. </span
+                              ><br /><br />
+                              <span
+                                style="
+                                  font-family: arial, helvetica, sans-serif;
+                                  font-size: 13pt;
+                                "
+                              >
+                                Beyond technical excellence, we believe in
+                                nurturing well-rounded individuals by
+                                encouraging participation in co-curricular and
+                                extracurricular activities. Our alumni have made
+                                remarkable contributions both nationally and
+                                internationally, bringing pride to our
+                                institution. We remain committed to our mission
+                                of developing skilled professionals who not only
+                                contribute to technological advancements but
+                                also serve society with integrity and
+                                responsibility—the Don Bosco way. </span
+                              ><br /><br />
+
+                              <span
+                                style="
+                                  font-family: arial, helvetica, sans-serif;
+                                  font-size: 13pt;
+                                "
+                              >
+                                We look forward to continuing our journey of
+                                excellence and innovation, preparing our
+                                students for a successful and impactful career
+                                in the ever-evolving world of electronics and
+                                telecommunications. </span
+                              ><br /><br />
+                              <strong> Ms. Madhavi Suryakant Pednekar </strong>
+                              <br />
+                              Head of Department,
+                              <br />
+                              Electronics and Telecommunication Engineering
+                              <br />
+                              The Bombay Salesian Society’s Don Bosco Institute
+                              of Technology, Mumbai
+                              <span
+                                style="
+                                  font-family: arial, helvetica, sans-serif;
+                                  font-size: 13pt;
+                                "
+                              >
+                              </span>
+                            </p>
+
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- video section -->
+        <div class="col-md-4 p-0 justify-content-center">
+          <div class="container sticky-top py-3" style="z-index: 0">
+            <div
+              id="carouselExampleIndicators2"
+              class="carousel slide justify-content-center"
+              data-bs-ride="carousel"
+              data-bs-interval="2000"
+            >
+              <div class="carousel-indicators">
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleIndicators2"
+                  data-bs-slide-to="0"
+                  class=""
+                  aria-label="Slide 1"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleIndicators2"
+                  data-bs-slide-to="1"
+                  aria-label="Slide 2"
+                  class=""
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleIndicators2"
+                  data-bs-slide-to="2"
+                  aria-label="Slide 3"
+                  class="active"
+                  aria-current="true"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleIndicators2"
+                  data-bs-slide-to="3"
+                  aria-label="Slide 4"
+                ></button>
+              </div>
+              <div class="carousel-inner">
+                <div class="carousel-item">
+                  <video
+                    style="
+                      width: 70%;
+                      height: 300px;
+                      margin-left: 15%;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      margin-bottom: 10px;
+                    "
+                    controls=""
+                  >
+                    <source src="assets\videoplayback.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div class="carousel-item">
+                  <video
+                    style="
+                      width: 70%;
+                      height: 300px;
+                      margin-left: 15%;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      margin-bottom: 10px;
+                    "
+                    controls=""
+                  >
+                    <source
+                      src="assets\WhatsApp Video 2024-08-12 at 7.56.15 PM.mp4"
+                      type="video/mp4"
+                    />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div class="carousel-item active">
+                  <video
+                    style="
+                      width: 70%;
+                      height: 300px;
+                      margin-left: 15%;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      margin-bottom: 10px;
+                    "
+                    controls=""
+                  >
+                    <source
+                      src="assets\WhatsApp Video 2024-08-12 at 7.56.15 PM (1).mp4"
+                      type="video/mp4"
+                    />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div class="carousel-item active">
+                  <video
+                    style="
+                      width: 70%;
+                      height: 300px;
+                      margin-left: 15%;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      margin-bottom: 10px;
+                    "
+                    controls=""
+                  >
+                    <source
+                      src="assets\videoplayback (3).mp4"
+                      type="video/mp4"
+                    />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              </div>
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#carouselExampleIndicators2"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#carouselExampleIndicators2"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+
+            <!-- news and events -->
+            <div
+              class="row border rounded bg-light mx-3 mt-5 justify-content-center"
+              style="height: 400px; overflow: hidden; position: relative"
+            >
+              <h3 class="py-3 text-center">News and Events</h3>
+              <div class="scroll-container mb-5">
+                <div class="scroll-text text-center">
+                  <a
+                    href="/assets/pdf/Time Table_DBIT_EXTC_MSE and IA1_TT_ODD_2025-26_All-1.pdf"
+                    target="blank"
+                    class="nav-link"
+                    style="text-align: left"
+                    >EXTC IA-1 Time Table AY 2025-2026</a
+                  >
+                  <a
+                    href="assets/pdf/MSE_Syllabus_SE_SemIII_2025-26.pdf"
+                    target="blank"
+                    class="nav-link"
+                    style="text-align: left"
+                    >EXTC IA-1 Syllabus Sem III AY 2025-26</a
+                  >
+                  <a
+                    href="assets/pdf/IA1_Syllabus_TE_SemV_2025-26.pdf"
+                    target="blank"
+                    class="nav-link"
+                    style="text-align: left"
+                    >EXTC IA-1 Syllabus Sem V AY 2025-26</a
+                  >
+                  <a
+                    href="assets/pdf/IA1_Syllabus_BE_SemVII_2025-26.pdf"
+                    target="blank"
+                    class="nav-link"
+                    style="text-align: left"
+                    >EXTC IA-1 Syllabus Sem VII AY 2025-26</a
+                  >
+                  <a
+                    href="/assets/pdf/TT-24-25.pdf"
+                    target="blank"
+                    class="nav-link"
+                    style="text-align: left"
+                    >EXTC Time Table AY 2024-2025</a
+                  >
+                  <a
+                    href="/assets/pdf/IA-1_Time_Table_Even_sem_2024-25.pdf"
+                    target="blank"
+                    class="nav-link"
+                    style="text-align: left"
+                    >EXTC IA-1 Time Table AY 2024-25 (even semester)</a
+                  >
+                  <a
+                    href="/assets/pdf/I.A_1_BE- Sem_VIII_syllabus_2024-25_even_sem.pdf"
+                    target="blank"
+                    class="nav-link"
+                    style="text-align: left"
+                    >EXTC IA-1 Syllabus BE Sem VIII AY 2024-25</a
+                  >
+                  <a
+                    href="/assets/pdf/I.A_1_TE-Sem_VI_ syllabus_2024-25_even_sem.pdf"
+                    target="blank"
+                    class="nav-link"
+                    style="text-align: left"
+                    >EXTC IA-1 Syllabus TE Sem VI AY 2024-25</a
+                  >
+                  <a
+                    href="/assets/pdf/I.A_1_SE-Sem_IV_ syllabus_2024-25_even_sem.pdf"
+                    target="blank"
+                    class="nav-link"
+                    style="text-align: left"
+                    >EXTC IA-1 Syllabus SE Sem IV AY 2024-25</a
+                  >
+                  <a
+                    href="assets/pdf/IA1_Syllabus_ODD 2024-25.pdf"
+                    target="blank"
+                    class="nav-link"
+                    style="text-align: left"
+                    >EXTC IA-1 Syllabus AY 2024-25 (Odd Semester)</a
+                  >
+                  <a
+                    href="assets/pdf/IA1_TIME TABLE_ODD 2024-25.pdf"
+                    target="blank"
+                    class="nav-link"
+                    style="text-align: left"
+                    >EXTC IA-1 Time Table AY 2024-25 (Odd Semester)</a
+                  >
+                  <a
+                    href="/assets/pdf/alumni_meet_23.jpeg"
+                    target="blank"
+                    class="nav-link"
+                    style="text-align: left"
+                    >Alumni Meet 2023</a
+                  >
+                  <a
+                    href="/assets/pdf/community_learning.jpeg"
+                    target="blank"
+                    class="nav-link"
+                    style="text-align: left"
+                    >Community learning Bootcamp</a
+                  >
+                  <a
+                    href="/assets/pdf/EXTC_Placements_2021-22-Nov2021.pdf"
+                    target="blank"
+                    class="nav-link"
+                    style="text-align: left"
+                    >EXTC Placement Data (As Of 18th November 20201)</a
+                  >
+                  <a
+                    href="ExtcDeptWebsite/assets/pdf/Ourpdf/SEM EVEN -24- Class Timetable-V1_rev.pdf"
+                    target="blank"
+                    class="nav-link"
+                    style="text-align: left"
+                    >EXTC Class Time Table Even Semester</a
+                  >
+                  <a
+                    href="/assets/pdf/IA-1_TT_ODD_Sem_2022-2023.pdf"
+                    target="blank"
+                    class="nav-link"
+                    style="text-align: left"
+                    >EXTC IA-1 Time Table AY 2022-23 (Odd Semester)</a
+                  >
+                  <a
+                    href="/assets/pdf/IA2_Schedule__Syllabus_April_2022.pdf"
+                    target="blank"
+                    class="nav-link"
+                    style="text-align: left"
+                    >EXTC IA-2 Time Table AY 2021-22 (Even Semester)</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- flagship events -->
+            <div
+              class="row border rounded bg-light mt-3 mx-3 justify-content-center"
+              style="height: 200px"
+            >
+              <h3 class="py-3 text-center">Flagship Events</h3>
+              <div class="scroll-container mb-5">
+                <div class="scroll-text text-center">
+                  <a>Department Day - synergy</a>
+                  <br />
+                  <a>IEEE Roboton Workshop</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- contact -->
+            <div
+              class="row border rounded bg-light mt-3 mx-3 justify-content-center"
+              style="height: 300px"
+            >
+              <h3 class="py-3 text-center">Contact</h3>
+              <p>
+                <b>Department of Electronics & Telecommunication Engineering</b
+                ><br />
+
+                1st Floor, C Wing <br />
+
+                Don Bosco Institute Of Technology Premier Automobiles Road, Opp.
+                Fiat Company, Kurla (W), Mumbai- 400 070
+                <br />
+
+                <b>Contact :</b> 022-25042424 / 25040508 / 25042018 / 25041631 /
+                25042828 <br />
+
+                <b>Email -</b> dbit@dbit.in
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CHAT BAR BLOCK -->
+      <div class="chat-bar-collapsible" style="z-index: 9999">
+        <button id="chat-button" type="button" class="collapsible">
+          DBIT Virtual Assistant !
+          <i class="fa fa-plus" style="left: 20%; margin-left: 20%"></i>
+        </button>
+
+        <div class="content">
+          <div class="full-chat-block">
+            <!-- Message Container -->
+            <div class="outer-container">
+              <div
+                class="chat-container"
+                style="
+                  background-image: url(/assets/logo2.jpg);
+                  background-size: cover;
+                  background-repeat: no-repeat;
+                "
+              >
+                <!-- Messages -->
+                <div id="chatbox">
+                  <h5 id="chat-timestamp"></h5>
+                  <p id="botStarterMessage" class="botText">
+                    <span>Loading...</span>
+                  </p>
+                </div>
+
+                <!-- User input box -->
+                <div class="chat-bar-input-block" style="text-align: left">
+                  <div id="userInput">
+                    <input
+                      id="textInput"
+                      class="input-box"
+                      style="text-align: left"
+                      type="text"
+                      name="msg"
+                      placeholder="Tap 'Enter' to send a message"
+                    />
+                    <p></p>
+                  </div>
+
+                  <div class="chat-bar-icons">
+                    <i
+                      id="chat-icon"
+                      style="color: crimson"
+                      class="fa fa-fw fa-heart"
+                      onclick="heartButton()"
+                    ></i>
+                    <i
+                      id="chat-icon"
+                      style="color: #333"
+                      class="fa fa-search"
+                      onclick="sendButton()"
+                    ></i>
+                  </div>
+                </div>
+
+                <div id="chat-bar-bottom">
+                  <p></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div style="padding: 2rem"></div>
+
+    <div id="footer"></div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+    <script src="nav.js"></script>
+    <script src="temp.js"></script>
+    <script src="/header.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/response.js"></script>
+    <script src="/chat.js"></script>
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"
+      integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
